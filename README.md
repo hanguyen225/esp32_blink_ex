@@ -15,45 +15,27 @@ we are group 5 of class 157326
 3. Ongoing
 
       First we should define how should led flash in 1hz feq, means it complete flashing on and off within 1hz -> 0.5s on and 0.5s off
+
+      Lưu đồ thuật toán:
+      ![Diagram](./assets/Untitled_Diagram.svg)
+
+      Code sử dụng nằm ở ./src/hardware_based_interrupt_delay_blink.cpp, trích đoạn:
+
+        timer = timerBegin(0, 80, true);                // 80MHz / 80 = 1MHz (chia clock ABP cho 8 ta được 1MHz clock -> 1micro giây)
+        timerAttachInterrupt(timer, &onTimer, true);    // Initialize interrupt
+        timerAlarmWrite(timer, 500000, true);           // 500000micro giây = nửa chu kỳ (0.5s) -> toggle tắt mở mỗi 0.5s
+        timerAlarmEnable(timer);                        // Interrupt
+
       
+      Một số thông tin của ESP32 được sử dụng để code timer:
+         ESP32 ABP clock = 80MHz
+
       
 
+Hướng dẫn chạy code trên ESP32
+   Tải PlatformIO trên VScode, sau khi xong initializing thì tải repository này về và import
+   Khi import xong cần build bằng cách sử dụng tổ hợp ctrl+shift+p và chọn PlatformIO và chọn phần tương ứng
+   
+      theo thứ tự build->chọn COM->flash
 
-
-
-
-
-
-
-
-
-
-PlatformIO's README.md starts here
-
-How to build PlatformIO based project
-=====================================
-
-1. [Install PlatformIO Core](https://docs.platformio.org/page/core.html)
-2. Download [development platform with examples](https://github.com/platformio/platform-espressif32/archive/develop.zip)
-3. Extract ZIP archive
-4. Run these commands:
-
-```shell
-# Change directory to example
-$ cd platform-espressif32/examples/espidf-arduino-blink
-
-# Build project
-$ pio run
-
-# Upload firmware
-$ pio run --target upload
-
-# Build specific environment
-$ pio run -e esp32dev
-
-# Upload firmware for the specific environment
-$ pio run -e esp32dev --target upload
-
-# Clean build files
-$ pio run --target clean
-```
+   
