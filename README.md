@@ -14,6 +14,10 @@ we are group 5 of class 157326
 
 3. Ongoing
 
+      First we should define how should led flash in 1hz feq, means it complete flashing on and off within 1hz -> 0.5s on and 0.5s off
+      
+      
+
 
 
 
