@@ -36,6 +36,9 @@ Hướng dẫn chạy code trên ESP32
    Tải PlatformIO trên VScode, sau khi xong initializing thì tải repository này về và import
    Khi import xong cần build bằng cách sử dụng tổ hợp ctrl+shift+p và chọn PlatformIO và chọn phần tương ứng
    
-      theo thứ tự build->chọn COM->flash
+   ![Diagram](https://github.com/hanguyen225/esp32_blink_ex/blob/main/assets/Screenshot%202025-05-26%20125002.png?raw=true)
 
    
+      Thứ tự các bước build->chọn COM->flash
+
+  
